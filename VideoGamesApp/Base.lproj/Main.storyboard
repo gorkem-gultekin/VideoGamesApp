@@ -18,28 +18,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header-teaser" translatesAutoresizingMaskIntoConstraints="NO" id="Eg4-bZ-cwf">
-                                <rect key="frame" x="0.0" y="44" width="414" height="249"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="297"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABD-J0-Oa1">
-                                <rect key="frame" x="20" y="301" width="374" height="34"/>
+                                <rect key="frame" x="20" y="341" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7H3-AR-FOS">
-                                <rect key="frame" x="20" y="333" width="164" height="18"/>
+                                <rect key="frame" x="20" y="383" width="164" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Metacritic Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPb-ao-Jbd">
-                                <rect key="frame" x="20" y="351" width="104" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Metacritic Rate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPb-ao-Jbd">
+                                <rect key="frame" x="20" y="404" width="104" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bMh-2D-Wej">
-                                <rect key="frame" x="10" y="377" width="394" height="485"/>
+                                <rect key="frame" x="10" y="423" width="394" height="439"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderitLorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -47,7 +47,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFF-1i-AT5">
-                                <rect key="frame" x="349" y="238" width="45" height="45"/>
+                                <rect key="frame" x="349" y="288" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="DY7-E1-wy5"/>
                                     <constraint firstAttribute="width" constant="45" id="maL-CK-fSU"/>
@@ -61,16 +61,16 @@
                         <viewLayoutGuide key="safeArea" id="Wdf-Jb-inq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="bMh-2D-Wej" firstAttribute="top" secondItem="aPb-ao-Jbd" secondAttribute="bottom" constant="8" symbolic="YES" id="0am-U6-Wgr"/>
-                            <constraint firstItem="7H3-AR-FOS" firstAttribute="top" secondItem="Eg4-bZ-cwf" secondAttribute="bottom" constant="40" id="0xq-Qn-tMS"/>
-                            <constraint firstItem="Wdf-Jb-inq" firstAttribute="bottom" secondItem="ABD-J0-Oa1" secondAttribute="bottom" constant="527" id="31v-3w-4X5"/>
+                            <constraint firstItem="bMh-2D-Wej" firstAttribute="top" secondItem="aPb-ao-Jbd" secondAttribute="bottom" constant="1" id="0am-U6-Wgr"/>
+                            <constraint firstItem="7H3-AR-FOS" firstAttribute="top" secondItem="Eg4-bZ-cwf" secondAttribute="bottom" constant="42" id="0xq-Qn-tMS"/>
+                            <constraint firstItem="Wdf-Jb-inq" firstAttribute="bottom" secondItem="ABD-J0-Oa1" secondAttribute="bottom" constant="487" id="31v-3w-4X5"/>
                             <constraint firstItem="Eg4-bZ-cwf" firstAttribute="leading" secondItem="Wdf-Jb-inq" secondAttribute="leading" id="3VN-d3-KfJ"/>
                             <constraint firstItem="Wdf-Jb-inq" firstAttribute="trailing" secondItem="bMh-2D-Wej" secondAttribute="trailing" constant="10" id="5lx-vu-DE0"/>
                             <constraint firstItem="Eg4-bZ-cwf" firstAttribute="top" secondItem="Wdf-Jb-inq" secondAttribute="top" id="6S3-Mg-V6L"/>
-                            <constraint firstItem="Wdf-Jb-inq" firstAttribute="bottom" secondItem="Eg4-bZ-cwf" secondAttribute="bottom" constant="569" id="BHL-tJ-Ho5"/>
-                            <constraint firstItem="aPb-ao-Jbd" firstAttribute="top" secondItem="7H3-AR-FOS" secondAttribute="bottom" id="Do7-sU-vJW"/>
-                            <constraint firstItem="ABD-J0-Oa1" firstAttribute="top" secondItem="XFF-1i-AT5" secondAttribute="bottom" constant="18" id="DqX-Ns-k7l"/>
-                            <constraint firstItem="ABD-J0-Oa1" firstAttribute="top" secondItem="Eg4-bZ-cwf" secondAttribute="bottom" constant="8" id="IfV-fB-ltu"/>
+                            <constraint firstItem="Wdf-Jb-inq" firstAttribute="bottom" secondItem="Eg4-bZ-cwf" secondAttribute="bottom" constant="521" id="BHL-tJ-Ho5"/>
+                            <constraint firstItem="aPb-ao-Jbd" firstAttribute="top" secondItem="7H3-AR-FOS" secondAttribute="bottom" constant="3" id="Do7-sU-vJW"/>
+                            <constraint firstItem="ABD-J0-Oa1" firstAttribute="top" secondItem="XFF-1i-AT5" secondAttribute="bottom" constant="8" id="DqX-Ns-k7l"/>
+                            <constraint firstItem="ABD-J0-Oa1" firstAttribute="top" secondItem="Eg4-bZ-cwf" secondAttribute="bottom" id="IfV-fB-ltu"/>
                             <constraint firstItem="Wdf-Jb-inq" firstAttribute="trailing" secondItem="7H3-AR-FOS" secondAttribute="trailing" constant="230" id="JBG-Cd-Ix6"/>
                             <constraint firstItem="bMh-2D-Wej" firstAttribute="leading" secondItem="Wdf-Jb-inq" secondAttribute="leading" constant="10" id="UJq-bd-ORI"/>
                             <constraint firstItem="Eg4-bZ-cwf" firstAttribute="width" secondItem="DKt-SL-7Ps" secondAttribute="height" multiplier="207:448" id="YIG-qE-irI"/>
@@ -86,16 +86,16 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="descriptionView" destination="bMh-2D-Wej" id="eeL-DH-ZTM"/>
                         <outlet property="imageView" destination="Eg4-bZ-cwf" id="yjq-ct-UTP"/>
                         <outlet property="metacriticLabel" destination="aPb-ao-Jbd" id="RHe-k3-lCE"/>
-                        <outlet property="overview" destination="bMh-2D-Wej" id="eeL-DH-ZTM"/>
                         <outlet property="releaseLabel" destination="7H3-AR-FOS" id="TdS-0A-gDT"/>
                         <outlet property="titleLabel" destination="ABD-J0-Oa1" id="eiQ-90-hw3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8h-8M-oUZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3352.1739130434785" y="-58.258928571428569"/>
+            <point key="canvasLocation" x="2530.434782608696" y="90.401785714285708"/>
         </scene>
         <!--Liked View Controller-->
         <scene sceneID="2l4-k0-OPK">
@@ -107,13 +107,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BWp-ns-RIt">
                             <size key="itemSize" width="128" height="128"/>
-                            <size key="headerReferenceSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavCell" id="zK9-nf-Xzm">
-                                <rect key="frame" x="0.0" y="50" width="128" height="128"/>
+                                <rect key="frame" x="0.0" y="10" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cjC-9i-zyO">
                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -121,10 +121,6 @@
                                 </collectionViewCellContentView>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="paN-Zo-Jqk">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="kq7-0O-le9" id="8Dc-tC-GT2"/>
                             <outlet property="delegate" destination="kq7-0O-le9" id="ejP-MR-gso"/>

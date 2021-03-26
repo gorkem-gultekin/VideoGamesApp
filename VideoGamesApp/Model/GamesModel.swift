@@ -20,8 +20,15 @@ struct Game: Decodable {
 struct GameDetail: Decodable {
     let id: Int
     let name: String
+    let rating: Double
     let released: String
     let metacritic: Int
     let description: String
     let background_image: String?
+}
+struct LikedModel {
+    let id: Int
+    let name: String
+    let image: String
+    let ratingReleased: String
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 struct GameListViewModel{
-    let gameList:[Game]
+    var gameList:[Game]
     
     func numberOfRowsInSection() -> Int {
         return self.gameList.count
@@ -19,7 +19,6 @@ struct GameListViewModel{
 }
 struct GameViewModel {
     let game: Game
-    
     var id:Int{
         return game.id
     }
@@ -40,9 +39,5 @@ struct GameViewModel {
             return nil
         }
     }
-    var detailPage: String{
-        return "deneme"
-    }
-    
 }
 

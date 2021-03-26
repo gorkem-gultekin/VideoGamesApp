@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import Kingfisher
+import CoreData
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
@@ -15,11 +16,20 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var releaseLabel: UILabel!
     @IBOutlet weak var metacriticLabel: UILabel!
     @IBOutlet weak var descriptionView: UITextView!
+    @IBOutlet weak var likeDislikeButton: UIButton!
     var gameId:Int!
     var gameDetail:DetailModel!
+    var liked: Bool!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        tabBarController?.tabBar.isHidden = true
+        likedStatus()
         let headers:HTTPHeaders = [
             "x-rapidapi-key": "c42dffd9f3msh2cbb0c354c7ab5ep11475bjsnc873c3d8b693",
             "x-rapidapi-host": "rawg-video-games-database.p.rapidapi.com"
@@ -29,12 +39,23 @@ class DetailViewController: UIViewController {
             self.fetchDetailGame(urlString:urlString , headers: headers)
         }
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-        
+    override func viewWillDisappear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
     }
     @IBAction func likeButtonClicked(_ sender: Any) {
+        if gameDetail != nil {
+            if liked == true{
+                gameDetail.dislikeButton()
+                likeDislikeButton.setImage(UIImage(named: "like"), for: .normal)
+                showError(title: "Notification", message: "Removed From Favorites")
+                liked = false
+            }else{
+                gameDetail.favGameSave()
+                likeDislikeButton.setImage(UIImage(named: "dislike1"), for: .normal)
+                showError(title: "Notification", message: "Added to Favorites")
+                liked = true
+            }
+        }
     }
 }
 extension DetailViewController{
@@ -44,17 +65,52 @@ extension DetailViewController{
                 print(error.localizedDescription)
             }else if let games = games{
                 gameDetail = DetailModel(detailItem: games)
-                DispatchQueue.main.async {
-                    KF.url(gameDetail.image).loadDiskFileSynchronously().cacheMemoryOnly()
-                        .fade(duration: 0.1)
-                        .set(to: imageView)
-                }
+                let scale = UIScreen.main.scale
+                let resizingProcessor = ResizingImageProcessor(referenceSize: CGSize(width: scale * 500.0, height: 300.0 * scale))
+                imageView.kf.indicatorType = .activity
+                imageView.kf.setImage(with: gameDetail.image,
+                                      options: [.processor(resizingProcessor)])
                 titleLabel.text = gameDetail.name
-                releaseLabel.text = gameDetail.releaseDate
+                releaseLabel.text = gameDetail.released
                 metacriticLabel.text = gameDetail.metacriticRate
                 descriptionView.text = gameDetail.description
-                
             }
         }
     }
+    
+    func likedStatus() {
+        var likedGame: Array<LikedModel> = []
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Likedgames")
+        fetchRequest.returnsObjectsAsFaults = false
+        do{
+            let results = try context.fetch(fetchRequest)
+            for result in results as! [NSManagedObject]{
+                if let id = result.value(forKey: "id") as? Int{
+                    if let name = result.value(forKey: "name") as? String{
+                        if let image = result.value(forKey: "image") as? String{
+                            if let ratingReleased = result.value(forKey: "ratingReleased") as? String{
+                                likedGame.append(LikedModel(id: id, name: name, image: image,ratingReleased:ratingReleased))
+                            }
+                        }
+                    }
+                }
+            }
+        }catch {
+            print(error)
+        }
+        for game in likedGame{
+            if game.id == gameId{
+                liked = true
+                likeDislikeButton.setImage(UIImage(named: "dislike1"), for: .normal)
+            }
+        }
+    }
+    func showError(title:String, message:String) {
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(ac, animated: true, completion: nil)
+    }
+    
 }

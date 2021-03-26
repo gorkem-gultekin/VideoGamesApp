@@ -17,11 +17,15 @@ struct DataService {
         AF.request(url,method: .get,headers: headers)
             .validate(statusCode: 200..<300)
             .responseDecodable(of:Games.self){(response) in
-                if let error = response.error{
-                    completion(nil,error)
-                }
-                if let games = response.value {
+                switch (response.result) {
+                    case .success(_):
+                    if let games = response.value {
                     completion(games,nil)
+                    }
+                    case .failure(_):
+                    if response.error != nil {
+                        completion(nil,response.error)
+                    }
                 }
             }
     }
@@ -31,11 +35,15 @@ struct DataService {
         AF.request(url, method: .get, headers: headers)
             .validate(statusCode: 200..<300)
             .responseDecodable(of: GameDetail.self){(response) in
-                if let error = response.error{
-                    completion(nil,error)
-                }
-                if let gameDetail = response.value{
+                switch (response.result) {
+                    case .success(_):
+                    if let gameDetail = response.value {
                     completion(gameDetail,nil)
+                    }
+                    case .failure(_):
+                    if response.error != nil {
+                        completion(nil,response.error)
+                    }
                 }
             }
     }

@@ -6,53 +6,70 @@
 //
 
 import UIKit
-
-private let reuseIdentifier = "Cell"
+import CoreData
+import Kingfisher
 
 class LikedViewController: UICollectionViewController {
-
+    
+    private var likedGame: Array<LikedModel> = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView!.register(UINib(nibName: "GameCell", bundle: nil), forCellWithReuseIdentifier: "LikedCell")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
+        getData()
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 10
+        return likedGame.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "LikedCell", for: indexPath) as! GameCell
+        let item = likedGame[indexPath.row]
+        let url = URL(string: item.image)
+        let scale = UIScreen.main.scale
+        let resizingProcessor = ResizingImageProcessor(referenceSize: CGSize(width: scale * 500.0, height: 300.0 * scale))
+        cell.imageView.kf.indicatorType = .activity
+        cell.imageView.kf.setImage(with: url, options: [.processor(resizingProcessor)])
+        
+        cell.titleLabel.text = item.name
+        cell.ratingReleasedLabel.text = item.ratingReleased
         return cell
     }
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(identifier: "DetailPage") as! DetailViewController
+        vc.gameId = likedGame[indexPath.row].id
+        navigationController?.pushViewController(vc, animated: true)
     }
-    */
-
+}
+extension LikedViewController{
+    func getData() {
+        likedGame.removeAll(keepingCapacity: false)
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Likedgames")
+        fetchRequest.returnsObjectsAsFaults = false
+        do{
+            let results = try context.fetch(fetchRequest)
+            for result in results as! [NSManagedObject]{
+                if let id = result.value(forKey: "id") as? Int{
+                    if let name = result.value(forKey: "name") as? String{
+                        if let image = result.value(forKey: "image") as? String{
+                            if let ratingReleased = result.value(forKey: "ratingReleased") as? String{
+                                likedGame.append(LikedModel(id: id, name: name, image: image,ratingReleased:ratingReleased))
+                                    collectionView.reloadData()
+                            }
+                        }
+                    }
+                }
+            }
+        }catch {
+            print(error)
+        }
+    }
 }

@@ -46,7 +46,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFF-1i-AT5">
-                                <rect key="frame" x="349" y="288" width="45" height="45"/>
+                                <rect key="frame" x="349" y="279" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="DY7-E1-wy5"/>
                                     <constraint firstAttribute="width" constant="45" id="maL-CK-fSU"/>
@@ -68,7 +68,7 @@
                             <constraint firstItem="Eg4-bZ-cwf" firstAttribute="top" secondItem="Wdf-Jb-inq" secondAttribute="top" id="6S3-Mg-V6L"/>
                             <constraint firstItem="Wdf-Jb-inq" firstAttribute="bottom" secondItem="Eg4-bZ-cwf" secondAttribute="bottom" constant="521" id="BHL-tJ-Ho5"/>
                             <constraint firstItem="aPb-ao-Jbd" firstAttribute="top" secondItem="7H3-AR-FOS" secondAttribute="bottom" constant="3" id="Do7-sU-vJW"/>
-                            <constraint firstItem="ABD-J0-Oa1" firstAttribute="top" secondItem="XFF-1i-AT5" secondAttribute="bottom" constant="8" id="DqX-Ns-k7l"/>
+                            <constraint firstItem="ABD-J0-Oa1" firstAttribute="top" secondItem="XFF-1i-AT5" secondAttribute="bottom" constant="17" id="DqX-Ns-k7l"/>
                             <constraint firstItem="ABD-J0-Oa1" firstAttribute="top" secondItem="Eg4-bZ-cwf" secondAttribute="bottom" id="IfV-fB-ltu"/>
                             <constraint firstItem="Wdf-Jb-inq" firstAttribute="trailing" secondItem="7H3-AR-FOS" secondAttribute="trailing" constant="230" id="JBG-Cd-Ix6"/>
                             <constraint firstItem="bMh-2D-Wej" firstAttribute="leading" secondItem="Wdf-Jb-inq" secondAttribute="leading" constant="10" id="UJq-bd-ORI"/>
@@ -216,7 +216,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="5dk-l8-LgC">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="5dk-l8-LgC">
                                         <rect key="frame" x="18.5" y="0.0" width="377" height="174"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1Vl-RS-AUT">

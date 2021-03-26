@@ -21,9 +21,12 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     var listGameModel: GameListViewModel!
     var searchData: GameListViewModel!
     fileprivate var currentPage: Int = 0
+    private var label = UILabel()
     override func viewDidLoad() {
         super.viewDidLoad()
         listCollectionView.register(UINib(nibName: "GameCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
+        label = labelCreate()
+        label.isHidden = true
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -50,8 +53,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
             let offset = scrollView.contentOffset.x
             currentPage = Int(floor((offset - pageSide / 2) / pageSide) + 1)
             pageView.currentPage = currentPage
-            print("currentPage " + currentPage.description)
-        }
+    }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView.tag == 0{
             let cell = sliderCollectionView.dequeueReusableCell(withReuseIdentifier: "SliderCell", for: indexPath) as! SliderCollectionViewCell
@@ -60,7 +62,6 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
             let resizingProcessor = ResizingImageProcessor(referenceSize: CGSize(width: scale * 500.0, height: 300.0 * scale))
             cell.imageView.kf.indicatorType = .activity
             cell.imageView.kf.setImage(with: sliderItem.image, options:[.processor(resizingProcessor)])
-           
             return cell
         }else if collectionView.tag == 1{
             return Cells(indexPath: indexPath, model: listGameModel)
@@ -73,6 +74,15 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         Search(searchText: searchText)
+    }
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        view.endEditing(true)
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
     }
 }
 extension HomeViewController: UICollectionViewDelegateFlowLayout{
@@ -125,14 +135,20 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout{
                 let data = fullGameList.gameList.filter{$0.name.range(of: searchText, options: .caseInsensitive) != nil }
                 searchData = GameListViewModel(gameList: data)
                 searchCollectionView.reloadData()
+                if data.isEmpty{
+                    label.isHidden = false
+                }else{
+                    label.isHidden = true
+                }
             }else if searchText.count < 3{
+                label.isHidden = true
                 sliderCollectionView.isHidden = false
                 listCollectionView.isHidden = false
                 pageView.isHidden = false
             }
         }
     }
-    func labelShow(open:Bool){
+    func labelCreate() -> UILabel{
         let label = UILabel()
         label.text = "Üzgünüz, aradığınız oyun bulunamadı!"
         label.font = UIFont.boldSystemFont(ofSize: 20.0)
@@ -140,11 +156,8 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout{
         label.sizeToFit()
         label.center = self.view.center
         self.view.addSubview(label)
-        if open == true{
-            label.isHidden = false
-        }else if open == false{
-            label.isHidden = true
-        }
+        return label
+
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)

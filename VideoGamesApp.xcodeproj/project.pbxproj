@@ -137,10 +137,10 @@
 			isa = PBXGroup;
 			children = (
 				19841630260A2C980011A646 /* Assets.xcassets */,
-				19A6587A260CAEE9003C72D3 /* Database */,
 				19841635260A2C980011A646 /* Info.plist */,
 				19841632260A2C980011A646 /* LaunchScreen.storyboard */,
 				1984162D260A2C970011A646 /* Main.storyboard */,
+				19A6587A260CAEE9003C72D3 /* Database */,
 				1984166B260A506F0011A646 /* Model */,
 				19841668260A504B0011A646 /* Service */,
 				19841669260A50520011A646 /* View */,

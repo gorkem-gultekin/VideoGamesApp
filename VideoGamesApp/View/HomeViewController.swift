@@ -31,8 +31,8 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         let headers:HTTPHeaders = [
-            "x-rapidapi-key": "c42dffd9f3msh2cbb0c354c7ab5ep11475bjsnc873c3d8b693",
-            "x-rapidapi-host": "rawg-video-games-database.p.rapidapi.com"
+            "x-rapidapi-key": DataService.shared.apiKey,
+            "x-rapidapi-host": DataService.shared.apiHost
         ]
         let urlString = "https://rawg-video-games-database.p.rapidapi.com/games"
         DispatchQueue.main.async {
@@ -149,7 +149,6 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout{
         }
     }
     func labelCreate() -> UILabel{
-        let label = UILabel()
         label.text = "Üzgünüz, aradığınız oyun bulunamadı!"
         label.font = UIFont.boldSystemFont(ofSize: 20.0)
         label.textAlignment = .center
@@ -157,7 +156,6 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout{
         label.center = self.view.center
         self.view.addSubview(label)
         return label
-
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)

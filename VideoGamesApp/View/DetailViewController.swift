@@ -31,8 +31,8 @@ class DetailViewController: UIViewController {
         tabBarController?.tabBar.isHidden = true
         likedStatus()
         let headers:HTTPHeaders = [
-            "x-rapidapi-key": "c42dffd9f3msh2cbb0c354c7ab5ep11475bjsnc873c3d8b693",
-            "x-rapidapi-host": "rawg-video-games-database.p.rapidapi.com"
+            "x-rapidapi-key": DataService.shared.apiKey,
+            "x-rapidapi-host": DataService.shared.apiHost
         ]
         let urlString = "https://rawg-video-games-database.p.rapidapi.com/games/\(gameId!)"
         DispatchQueue.main.async {

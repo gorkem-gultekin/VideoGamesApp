@@ -24,8 +24,8 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0q4-0u-Cf8">
-                        <rect key="frame" x="128" y="43" width="266" height="24"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                        <rect key="frame" x="128" y="46" width="266" height="22"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -42,7 +42,7 @@
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="top" secondItem="kcH-WK-Vjt" secondAttribute="top" constant="28" id="7Uk-Jn-kWf"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="kcH-WK-Vjt" secondAttribute="bottom" constant="16" id="F3S-N2-g18"/>
                 <constraint firstItem="0q4-0u-Cf8" firstAttribute="leading" secondItem="kcH-WK-Vjt" secondAttribute="trailing" constant="8" symbolic="YES" id="Qf7-Gt-7XI"/>
-                <constraint firstItem="H7d-5p-QOA" firstAttribute="top" secondItem="0q4-0u-Cf8" secondAttribute="bottom" constant="6" id="cQ3-wf-Q6w"/>
+                <constraint firstItem="H7d-5p-QOA" firstAttribute="top" secondItem="0q4-0u-Cf8" secondAttribute="bottom" constant="5" id="cQ3-wf-Q6w"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="kcH-WK-Vjt" secondAttribute="trailing" constant="294" id="dN8-ed-0gm"/>
                 <constraint firstItem="H7d-5p-QOA" firstAttribute="centerY" secondItem="kcH-WK-Vjt" secondAttribute="centerY" constant="16" id="eQf-Pa-JhX"/>
                 <constraint firstItem="kcH-WK-Vjt" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="20" id="kYa-Vu-CY8"/>
